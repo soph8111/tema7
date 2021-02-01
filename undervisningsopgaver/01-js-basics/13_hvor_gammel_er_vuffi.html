@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <p>Din hunds alder</p>
+    <input type="text" id="alder">
+    <br><br>
+    <button>Se om jeres alder passer til hinanden</button>
+
+    <script>
+        let alder = document.querySelector("#alder").value;
+
+        let resultat;
+
+        document.querySelector("button").addEventListener("click", buttonClicked);
+
+        function buttonClicked() {
+            resultat = 16 * Math.log(alder) + 31;
+
+            console.log(resultat);
+        }
+
+    </script>
+</body>
+
+</html>
