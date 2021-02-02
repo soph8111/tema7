@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body img {
+            width: 50vw;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Slideshow</h1>
+    </header>
+
+    <main>
+        <img src="billeder/img1.png" alt="img1">
+        <button>Næste billede</button>
+    </main>
+
+    <footer>
+        <p>Billederne er brugt med tilladelse fra Rasmus Breghøi</p>
+    </footer>
+
+    <script>
+        // Variabler
+
+        // Array med billederne i
+        let billeder = ['billeder/img1.png', 'billeder/img2.png', 'billeder/img3.png', 'billeder/img4.png', 'billeder/img5.png', 'billeder/img6.png', 'billeder/img7.png', 'billeder/img8.png'];
+
+        // Giver første billede tallet 0, så jeg derefter kan tælle på det
+        let billede = document.querySelector("img");
+        let tal = 0;
+
+        // Angiver knappen en variable
+        let button = document.querySelector("button");
+
+        button.addEventListener("click", next);
+
+        function next() {
+            console.log("Næste billede");
+
+            if (tal < 7) {
+                // console.log("tjek");
+                tal++;
+                //console.log(billeder[tal]);
+                billede.src = billeder[tal];
+            } else {
+                tal = 0;
+                billede.src = billeder[tal];
+            }
+        }
+
+    </script>
+</body>
+
+</html>
