@@ -196,7 +196,7 @@
                 allArticles.removeEventListener("mouseover", addBoxShadow);
 
                 //Fjern klassen
-                allArticles.classList.remove("skygge");
+                allArticles.classList.toggle("skygge");
 
                 // Transitions
                 allArticles.addEventListener("mouseout", removeBoxShadow);
@@ -207,7 +207,7 @@
                 allArticles.removeEventListener("mouseout", removeBoxShadow);
 
                 //Fjern klassen
-                allArticles.classList.add("skygge");
+                allArticles.classList.toggle("skygge");
 
                 // Transitions
                 allArticles.addEventListener("mouseover", addBoxShadow);
