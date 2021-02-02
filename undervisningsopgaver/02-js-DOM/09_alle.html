@@ -12,6 +12,12 @@
             line-height: 150%;
         }
 
+        .typo2 {
+            font-family: monospace;
+            color: darkseagreen;
+            font-size: 2rem;
+        }
+
     </style>
 
 </head>
@@ -43,6 +49,14 @@
             this.classList.toggle("typo");
         }
 
+        // Samme med overskrifterne
+        const allH3 = document.querySelectorAll("h3");
+        allH3.forEach(h3 => h3.addEventListener("click", addTypo2));
+
+        function addTypo2() {
+            this.classList.toggle("typo2");
+        }
+
 
         document.querySelector("button").addEventListener("click", reset);
 
@@ -52,6 +66,10 @@
             // Fjern alle klasser
             for (let i = 0; i < allP.length; i++) {
                 allP[i].classList.remove('typo');
+            }
+
+            for (let i = 0; i < allH3.length; i++) {
+                allH3[i].classList.remove('typo2');
             }
         }
 
