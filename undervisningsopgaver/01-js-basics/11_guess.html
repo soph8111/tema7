@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+    <p>Gæt et tal mellem 0-20</p>
+    <input type="number" id="guess">
+
+    <button>Gæt</button>
+    <!--    <button id="spil_igen">Spil igen</button>-->
+
+    <script>
+        const randomNr = Math.round(Math.random() * 20);
+        let antal = 0;
+
+        let resultat;
+
+
+        document.querySelector("button").addEventListener("click", buttonClicked);
+
+        function buttonClicked() {
+            let guess = document.querySelector("#guess").value;
+
+            // console.log("Tilfældigt tal", randomNr);
+            // console.log("Gæt", guess);
+
+            antal++;
+
+            if (guess == randomNr) {
+                resultat = `Tillykke, du gættede rigtigt. Du brugte ${antal} gæt.`;
+            } else if (guess > randomNr) {
+                resultat = "Øv, du gættede for højt";
+
+            } else {
+                resultat = "Øv, du gættede for lavt";
+
+            }
+            console.log(resultat);
+        }
+
+    </script>
+</body>
+
+</html>
+
+<!--
+
+    let randomNr;
+        let guess = document.querySelector("#guess").value;
+        let antal = 0;
+        let resultat;
+
+        window.addEventListener("load", findRandomTal);
+
+        function findRandomTal() {
+            console.log("findRandomTal");
+            randomNr = Math.round(Math.random() * 20);
+        }
+
+        document.querySelector("button").addEventListener("click", buttonClicked);
+
+        function buttonClicked() {
+
+            document.querySelector("button").removeEventListener("click", buttonClicked);
+
+            if (guess == randomNr) {
+                resultat = `Tillykke, du gættede rigtigt. Du brugte ${antal} gæt.`;
+            } else if (guess > randomNr) {
+                resultat = "Øv, du gættede for højt";
+            } else if (guess < randomNr) {
+                resultat = "Øv, du gættede for lavt";
+            }
+            console.log(resultat);
+        }
+-->
