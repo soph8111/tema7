@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+    <p>Din alder</p>
+    <input type="text" id="dinAlder">
+
+    <p>Din dates alder</p>
+    <input type="text" id="dinDatesAlder">
+    <br><br>
+    <button>Se om jeres alder passer til hinanden</button>
+
+    <script>
+        let dinAlder;
+        let dinDatesAlder;
+        let minimumAlder;
+        let maximumAlder;
+
+        document.querySelector("button").addEventListener("click", buttonClicked);
+
+        function buttonClicked() {
+            dinAlder = document.querySelector("#dinAlder").value;
+            dinDatesAlder = document.querySelector("#dinDatesAlder").value;
+            minimumAlder = Math.round(dinAlder / 2 + 7);
+            maximumAlder = Math.round((dinAlder * 2) - 7);
+
+            console.log("Minimum", minimumAlder);
+            console.log("Maximum", maximumAlder);
+
+            if (dinAlder < 15 || dinDatesAlder < 15) {
+                console.log("Det kan vi desværre ikke oplyse, da mindst en af jer er under 15");
+            } else {
+                if (dinDatesAlder >= minimumAlder && dinDatesAlder <= maximumAlder) {
+                    console.log("I må gerne date");
+
+                } else if (dinDatesAlder < minimumAlder) {
+                    console.log("I må ikke date");
+
+                } else if (dinDatesAlder > maximumAlder) {
+                    console.log("I må ikke date");
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>
