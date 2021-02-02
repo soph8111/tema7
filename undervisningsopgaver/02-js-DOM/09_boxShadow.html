@@ -189,6 +189,30 @@
 
             // eventhandlers (mouseover, mouseout)
 
+            allArticles.addEventListener("mouseover", addBoxShadow);
+
+            function addBoxShadow() {
+                // ryd op
+                allArticles.removeEventListener("mouseover", addBoxShadow);
+
+                //Fjern klassen
+                allArticles.classList.remove("skygge");
+
+                // Transitions
+                allArticles.addEventListener("mouseout", removeBoxShadow);
+            }
+
+            function removeBoxShadow() {
+                // ryd op
+                allArticles.removeEventListener("mouseout", removeBoxShadow);
+
+                //Fjern klassen
+                allArticles.classList.add("skygge");
+
+                // Transitions
+                allArticles.addEventListener("mouseover", addBoxShadow);
+
+            }
 
         }
 
