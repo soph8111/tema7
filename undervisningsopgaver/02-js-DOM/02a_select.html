@@ -24,8 +24,9 @@
         }
 
         section {
-            display: flex;
-            /*    Flex*/
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-gap: 1vw;
         }
 
         article {
@@ -100,20 +101,24 @@
         console.log(article2);
 
         // 1. h3
-        const h3First = document.querySelector("h3:first-child");
+        const h3First = document.querySelector("article:first-child h3");;
         console.log(h3First);
 
         // 2. h3
-        const h3Second = document.querySelector("h3:nth-child(2)");
+        const h3Second = document.querySelector("article:nth-child(2) h3");
         console.log(h3Second);
 
         // 1. p
-        const pFirst = document.querySelector("p:first-child");
-        console.log(h3First);
+        const pFirst = document.querySelector("article:first-child p");
+        console.log(pFirst);
 
         // 2. p
-        const pSecond = document.querySelector("p:nth-child(2)");
-        console.log(h3Second);
+        const pSecond = document.querySelector("article:nth-child(2) p");
+        console.log(pSecond);
+
+        // footer
+        const footer = document.querySelector("footer");
+        console.log(footer);
 
     </script>
 

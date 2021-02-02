@@ -31,6 +31,7 @@
 
         article {
             border: solid black 1px;
+            margin: 1vw;
         }
 
     </style>
@@ -64,18 +65,68 @@
     </footer>
 
     <script>
+        // Titel-element
         const titel = document.querySelector("header");
         console.log(titel);
 
         titel.textContent = "Billeder";
         titel.innerHTML = "<h1>Billedegalleri</h1>";
 
+        // Giv billede alt-atribbutten indhold
         const pic1 = document.querySelector("article:first-child img");
         const pic2 = document.querySelector("article:nth-child(2) img");
         console.log(pic1, pic2);
 
         pic1.alt = "billede af arkitektur";
         pic2.alt = "billede af natur";
+
+        // main
+        const main = document.querySelector("main");
+        console.log(main);
+
+        // h2
+        const h2 = document.querySelector("h2");
+        console.log(h2);
+
+        // section
+        const section = document.querySelector("section");
+        console.log(section);
+
+        // 1. article
+        const article1 = document.querySelector("article:first-child");
+        console.log(article1);
+
+        // 2. article
+        const article2 = document.querySelector("article:nth-child(2)");
+        console.log(article2);
+
+        // 1. h3
+        const h3First = document.querySelector("article:first-child h3");;
+        console.log(h3First);
+
+        h3First.textContent = "Første artikkel overskrift";
+
+        // 2. h3
+        const h3Second = document.querySelector("article:nth-child(2) h3");
+        console.log(h3Second);
+
+        h3Second.textContent = "Anden artikkel overskrift";
+
+        // 1. p
+        const pFirst = document.querySelector("article:first-child p");
+        console.log(pFirst);
+
+        pFirst.textContent = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione velit non nostrum fugiat eius, nulla delectus amet voluptatibus voluptate impedit mollitia odio, doloremque id, eveniet iste necessitatibus! Aut necessitatibus, sint.";
+
+        // 2. p
+        const pSecond = document.querySelector("article:nth-child(2) p");
+        console.log(pSecond);
+
+        pSecond.textContent = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi quaerat quas fugit, pariatur, dolor quibusdam tempora doloremque praesentium cum. Voluptate provident quos nam quibusdam quia, nihil amet, vero deserunt. Placeat!";
+
+        // footer
+        const footer = document.querySelector("footer");
+        console.log(footer);
 
     </script>
 
