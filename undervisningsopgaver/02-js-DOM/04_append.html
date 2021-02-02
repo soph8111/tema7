@@ -131,6 +131,34 @@
         const footer = document.querySelector("footer");
         console.log(footer);
 
+
+        //Øvelse 4
+
+        // 3. article
+        let article3 = document.createElement("article");
+
+        // 3. img
+        let pic3 = document.createElement("img");
+
+        pic3.src = "https://placeimg.com/640/480/nature"
+        pic3.alt = "billede af natur";
+
+        // 3. h3
+        let h3Third = document.createElement("h3");
+
+        h3Third.textContent = "Tredje artikel overskrift";
+
+        // 4. p
+        let pThird = document.createElement("p");
+
+        pThird.textContent = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae fuga velit nam id veniam labore quaerat, ratione quis explicabo ipsam delectus aperiam harum molestias! Ducimus expedita sed maxime autem nesciunt.";
+
+        // Indsæt i DOM'en
+        section.appendChild(article3);
+        article3.appendChild(pic3);
+        article3.appendChild(h3Third);
+        article3.appendChild(pThird);
+
     </script>
 
 </body>
