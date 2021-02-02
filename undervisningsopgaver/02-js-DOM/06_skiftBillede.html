@@ -165,6 +165,16 @@
             article3.appendChild(h3Third);
             article3.appendChild(pThird);
 
+            // Øvelse 6 - skift billede ved klik
+
+            pic1.addEventListener("click", skiftBillede);
+
+            function skiftBillede() {
+                console.log("skiftbillede");
+
+                let randomNr = Math.round(Math.random() * 10);
+                pic1.src = "https://placeimg.com/400/300/arch?t=" + randomNr;
+            }
         }
 
     </script>
