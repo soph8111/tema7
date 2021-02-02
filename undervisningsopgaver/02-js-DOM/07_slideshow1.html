@@ -54,13 +54,10 @@
         function next() {
             console.log("Næste billede");
 
-            if (tal < 7) {
-                // console.log("tjek");
-                tal++;
-                //console.log(billeder[tal]);
-                billede.src = billeder[tal];
-                // Hvis tallet er større end 7, så skal tal-variablen = 0. Dvs. at den går tilbage til det første billede i arrayet = "billede/img1.png"
-            }
+            tal++;
+            console.log(billeder[tal]);
+            billede.src = billeder[tal];
+
         }
 
     </script>
