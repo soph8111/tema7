@@ -53,13 +53,17 @@
         // Opretter funktionen "next"
         function next() {
             console.log("Næste billede");
-
+            // Tallet starter med at være nul, da det er anigivet ved let-variablen "tal".
+            // Hvis tallet er mindre end 7(array starter altid ved 0), så skal der + en til (++). Billedets src ændre sig til billede+tal fra array'et. Dvs. at første gang der klikkes, ændres src til billede nr. 2 i array'et = "billede/img2.png".
             if (tal < 7) {
                 // console.log("tjek");
                 tal++;
                 //console.log(billeder[tal]);
                 billede.src = billeder[tal];
                 // Hvis tallet er større end 7, så skal tal-variablen = 0. Dvs. at den går tilbage til det første billede i arrayet = "billede/img1.png"
+            } else {
+                tal = 0;
+                billede.src = billeder[tal];
             }
         }
 
