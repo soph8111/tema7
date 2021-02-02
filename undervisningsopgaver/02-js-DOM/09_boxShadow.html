@@ -35,7 +35,18 @@
         }
 
         .skygge {
-            box-shadow: 10px 10px 22px 2px rgba(104, 134, 206, 0.83);
+            animation-name: skygge_kf;
+            animation-duration: 1s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes skygge_kf {
+            0% {}
+
+            100% {
+                box-shadow: 10px 10px 22px 2px rgba(104, 134, 206, 0.83);
+            }
         }
 
     </style>
