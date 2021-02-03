@@ -10,8 +10,10 @@
 <body>
 
     <article>
-        <p></p>
+        <h3></h3>
         <img src="" alt="">
+        <p></p>
+        <p></p>
     </article>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -29,10 +31,11 @@
         // console.log(`Navn: ${dyr.navn} Type: ${dyr.type}, Billede: ${dyr.billede}, Levested: ${dyr.levested}`);
 
         const destination = document.querySelector("article");
-        const info = `Navn: ${dyr.navn} Type: ${dyr.type}, Levested: ${dyr.levested}`;
 
-        destination.querySelector("p").textContent = info;
+        destination.querySelector("h3").textContent = `Navn: ${dyr.navn}`;
         destination.querySelector("img").src = dyr.billede;
+        destination.querySelector("p").textContent = `Type: ${dyr.type}`;
+        destination.querySelector("p:nth-of-type(2n)").textContent = `Levested: ${dyr.levested}`;
 
     </script>
 </body>
