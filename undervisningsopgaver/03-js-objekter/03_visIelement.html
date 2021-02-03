@@ -10,6 +10,8 @@
 <body>
 
     <article>
+        <p></p>
+        <img src="" alt="">
     </article>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -26,8 +28,11 @@
         // console.log(dyr);
         // console.log(`Navn: ${dyr.navn} Type: ${dyr.type}, Billede: ${dyr.billede}, Levested: ${dyr.levested}`);
 
-        let article = document.querySelector("article");
-        article.innerHTML = `<img src=${dyr.billede}><p>Navn: ${dyr.navn} Type: ${dyr.type} Levested: ${dyr.levested} </p>`;
+        const destination = document.querySelector("article");
+        const info = `Navn: ${dyr.navn} Type: ${dyr.type}, Levested: ${dyr.levested}`;
+
+        destination.querySelector("p").textContent = info;
+        destination.querySelector("img").src = dyr.billede;
 
     </script>
 </body>
