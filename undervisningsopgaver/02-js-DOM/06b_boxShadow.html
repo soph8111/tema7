@@ -193,13 +193,42 @@
 
             // Øvelse 9
 
+            // Lav variablen for alle articles
+            const allArticles = document.querySelectorAll("article");
+
+            // Lav en variable, som kan vælge i article-arrayet (arry bliver "automatisk" oprettet når man bruger "querySelectorAll")
+            let i = 0;
+
+            // "i"-variablen bruges her til at tælle op på variablen "allArticles"
+            for (let i = 0; i < allArticles.length; i++) {
+                allArticles[i].classList.add('skygge');
+            }
+
+            // Tilføj/fjern klassen fra "this" i allArticle-array'et
+            allArticles.forEach(article => article.addEventListener("mouseover", removeBoxShadow));
+
+            function removeBoxShadow() {
+                this.classList.remove("skygge");
+            }
+
+            allArticles.forEach(article => article.addEventListener("mouseout", addBoxShadow));
+
+            function addBoxShadow() {
+                this.classList.add("skygge");
+            }
+
+
             // Tilføjer klassen "skygge" (box-shadow)
+
+            /*
             // HUSK lige nu virker den kun på én
             const allArticles = document.querySelector("article");
             allArticles.classList.add("skygge");
+            */
 
             // eventhandlers (mouseover, mouseout)
 
+            /*
             allArticles.addEventListener("mouseover", addBoxShadow);
 
             function addBoxShadow() {
@@ -224,6 +253,7 @@
                 allArticles.addEventListener("mouseover", addBoxShadow);
 
             }
+            */
 
         }
 
