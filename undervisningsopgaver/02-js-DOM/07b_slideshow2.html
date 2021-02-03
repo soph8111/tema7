@@ -55,7 +55,11 @@
             console.log("Næste billede");
             // Tallet starter med at være nul, da det er anigivet ved let-variablen "tal".
             // Hvis tallet er mindre end 7(array starter altid ved 0), så skal der + en til (++). Billedets src ændre sig til billede+tal fra array'et. Dvs. at første gang der klikkes, ændres src til billede nr. 2 i array'et = "billede/img2.png".
-            if (tal < 7) {
+            if (tal == 6) {
+                tal++;
+                billede.src = billeder[tal];
+                button.textContent = "Forfra";
+            } else if (tal < 7) {
                 // console.log("tjek");
                 tal++;
                 //console.log(billeder[tal]);
@@ -64,6 +68,7 @@
             } else {
                 tal = 0;
                 billede.src = billeder[tal];
+                button.textContent = "Næste billede";
             }
         }
 
