@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objekter</title>
+
+    <style>
+        #liste {
+            border: solid black 1px;
+            margin: 5px;
+            padding: 1vw;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <section class="data-container"></section>
+
+    <template>
+        <article id="liste">
+            <h3></h3>
+            <img src="" alt="">
+            <p></p>
+            <p></p>
+        </article>
+    </template>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", visDyr);
+
+        let dyr = [{
+            "navn": "Frø",
+            "type": "Amfibie",
+            "billede": "http://mabe-kea.dk/E19/pics/frog.png",
+            "levested": "Sump"
+        }, {
+            "navn": "Gris",
+            "type": "Pattegrid",
+            "billede": "http://mabe-kea.dk/E19/pics/pig.png",
+            "levested": "Svinefarm"
+        }, {
+            "navn": "Ræv",
+            "type": "Pattedyr",
+            "billede": "http://mabe-kea.dk/E19/pics/fox.png",
+            "levested": "Skov"
+        }, {
+            "navn": "Sild",
+            "type": "Fisk",
+            "billede": "http://mabe-kea.dk/E19/pics/sild.jpg",
+            "levested": "Vand"
+        }, {
+            "navn": "Krokodille",
+            "type": "Krybdyr",
+            "billede": "http://mabe-kea.dk/E19/pics/kroko.jpg",
+            "levested": "Floder"
+        }];
+
+        console.log(dyr);
+
+        function visDyr() {
+            console.log("visDyr");
+
+            // Opret forbindelse til den container/section hvor indholdet skal placeres
+            const containerMedDyr = document.querySelector(".data-container");
+            // Opret forbindelse til template-tagget der skal klones fra
+            const dyrTemplate = document.querySelector("template");
+            // Kør array'et igennem med forEach og sæt det ind i en template
+            dyr.forEach(etDyr => {
+                // Klon tampletes indhold (til en vaiable)
+                let klon = dyrTemplate.cloneNode(true).content;
+                // placer elementer fra objekter ind i de forskellige tags
+                klon.querySelector("h3").textContent = etDyr.navn;
+                klon.querySelector("img").src = etDyr.billede;
+                klon.querySelector("p").textContent = `Type: ${etDyr.type}`;
+                klon.querySelector("p:nth-of-type(2n)").textContent = `Levested: ${etDyr.levested}`;
+                // Sæt ind i container
+                containerMedDyr.appendChild(klon);
+            });
+        }
+
+
+        /*
+        let dyreListe = document.querySelector("#liste");
+            dyr.forEach(etDyr => {
+                dyreListe.innerHTML += `<p>Navn: ${etDyr.navn}, Type: ${etDyr.type}, Levested: ${etDyr.levested} </p>`
+            })
+            */
+
+    </script>
+</body>
+
+</html>
