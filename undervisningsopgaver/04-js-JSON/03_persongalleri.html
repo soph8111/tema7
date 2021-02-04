@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aflevering, personliste</title>
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <section class="data-container"></section>
+
+    <template>
+        <article>
+            <h2></h2>
+            <img src="" alt="">
+            <p></p>
+            <p></p>
+        </article>
+
+    </template>
+
+    <script>
+        const url = "https://persongalleri-5d3e.restdb.io/rest/persongalleri";
+
+        const options = {
+            headers: {
+                'x-apikey': "600fe9211346a1524ff12e31"
+            }
+        };
+
+        async function hentData() {
+            const respons = await fetch(url, options);
+            const json = await respons.json();
+            vis(json);
+        }
+
+        function vis(json) {
+            console.log(json);
+        }
+
+        hentData();
+    </script>
+</body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
