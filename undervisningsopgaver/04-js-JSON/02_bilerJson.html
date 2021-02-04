@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objekter</title>
+
+    <style>
+        .data-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 1vw;
+
+        }
+
+        #liste {
+            border: solid black 1px;
+            margin: 5px;
+            padding: 1vw;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="data-container"></section>
+
+    <template>
+        <article id="liste">
+            <h2>Mærke:</h2>
+            <h3>Model:</h3>
+            <p>Motor:</p>
+            <p>Km</p>
+            <p>Udstyr:</p>
+            <ul class="udstyr_liste"></ul>
+        </article>
+    </template>
+
+    <script>
+        const containerMedBiler = document.querySelector(".data-container");
+        const bilerTemplate = document.querySelector("template");
+
+        const fil = "02_alleBiler.json";
+
+        async function hentData(fil) {
+            const resultat = await fetch(fil);
+            const jsonData = await resultat.json();
+            vis(jsonData);
+        }
+
+        function vis(biler) {
+
+            biler.forEach(enBil => {
+                let klon = bilerTemplate.cloneNode(true).content;
+                klon.querySelector("h2").textContent = enBil.maerke;
+                klon.querySelector("h3").textContent = enBil.model;
+                klon.querySelector("p").textContent = enBil.motor;
+                klon.querySelector("p:nth-of-type(2n)").textContent = enBil.km;
+
+                enBil.udstyr.forEach(udstyr => {
+                    klon.querySelector(".udstyr_liste").innerHTML += "<li>" + udstyr + "</li>";
+                });
+                containerMedBiler.appendChild(klon);
+            });
+        }
+
+        hentData(fil);
+    </script>
+</body></html>
