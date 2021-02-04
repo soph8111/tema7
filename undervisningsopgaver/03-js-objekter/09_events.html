@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09_Events</title>
+    <style>
+        * {
+            margin: 5px;
+            padding: 0;
+        }
+
+        body img {
+            width: 100%;
+        }
+
+        section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-gap: 1vw;
+        }
+
+        h1 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: sofia-pro, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+        }
+
+        p {
+            font-size: 0.8rem;
+            font-family: sofia-pro, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+            line-height: 1;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <section class="data-container"></section>
+
+    <template>
+        <article id="liste">
+            <img src="" alt="">
+            <h1></h1>
+            <p></p>
+        </article>
+    </template>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", visFilm);
+
+        let film = [{
+            "titel": "A Calling",
+            "video": "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/W6dOqabNhHKBPXxxKKEZRA84-360.jpg",
+            "instruktør": "Christian Bengtson",
+            "land": "Danmark",
+            "varighed": "20",
+            "produktionsår": "2019"
+        }, {
+            "titel": "A Hole In My Heart",
+            "video": "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/Q8K1pZrOs03Q0IrDkBwGVu5r-360.jpg",
+            "instruktør": "Mees Peijnenburg",
+            "land": "Holland",
+            "varighed": "9",
+            "produktionsår": "2015"
+
+        }, {
+            "titel": "A Place In The Sun - 110 years after the genocide",
+            "video": "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/hUd4SdGQ8I23ovxWnGtBz4Ck-360.jpg",
+            "instruktør": "Christian Zipfel",
+            "land": "Tyskland",
+            "varighed": "20",
+            "produktionsår": "2018"
+
+        }, {
+            "titel": "A Tower of Two",
+            "video": "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/Zdt2ODEqSVOkNe8nUaSSu8kd-360.jpg",
+            "instruktør": "Jacob Krzysztof Glogowski",
+            "land": "Danmark",
+            "varighed": "21",
+            "produktionsår": "2019"
+
+        }, {
+            "titel": "A Worthy Man",
+            "video": "https://odense-film-festival.s3.eu-central-1.amazonaws.com/media/2iUOgQpixgIQCxyLtY6KiYuU-360.jpg",
+            "instruktør": "Kristian Håskjold",
+            "land": "Danmark",
+            "varighed": "19",
+            "produktionsår": "2018"
+        }];
+
+
+        console.log(film);
+
+        function visFilm() {
+            console.log("visFilm");
+
+            const containerMedFilm = document.querySelector(".data-container");
+            const filmTemplate = document.querySelector("template");
+
+            film.forEach(enFilm => {
+
+                let klon = filmTemplate.cloneNode(true).content;
+                klon.querySelector("img").src = enFilm.video;
+                klon.querySelector("h1").textContent = enFilm.titel;
+                klon.querySelector("p").textContent = `${enFilm.instruktør} | ${enFilm.land} | ${enFilm.varighed} min | ${enFilm.produktionsår}`;
+
+                containerMedFilm.appendChild(klon);
+            });
+        }
+
+    </script>
+</body>
+
+</html>
