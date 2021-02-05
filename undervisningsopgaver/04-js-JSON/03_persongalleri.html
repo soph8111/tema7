@@ -6,27 +6,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aflevering, personliste</title>
 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Arapey&family=Lato&display=swap" rel="stylesheet">
+
     <style>
         * {
-            margin: 0;
+            margin: 4px;
             padding: 0;
+            color: dimgray;
         }
 
         img {
+            margin: 0;
             width: 100%;
+        }
+
+        main {
+            border: solid orange 2px;
+            background-color: #f5f4f0;
+            padding: 1vw;
+        }
+
+        header {
+            height: 10vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            font-family: 'Arapey', serif;
+            text-transform: uppercase;
+            letter-spacing: 1rem;
+            font-weight: 100;
         }
 
         .data-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             grid-gap: 10px;
-
         }
 
-        article {
-            border: solid black 1px;
-            margin: 5px;
-            padding: 1vw;
+        article {}
+
+        h2 {
+            font-family: 'Lato', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        p {
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
         }
     </style>
 </head>
@@ -34,17 +65,20 @@
 <body>
 
     <main>
+        <header>
+            <h1>Persongalleri</h1>
+        </header>
+
         <section class="data-container"></section>
     </main>
 
     <template>
         <article>
-            <h2></h2>
             <img src="" alt="">
+            <h2></h2>
             <p class="dato"></p>
             <p class="hobby"></p>
         </article>
-
     </template>
 
     <script>
@@ -77,8 +111,8 @@
                 const klon = personerTemplate.cloneNode(true);
                 klon.querySelector("h2").textContent = person.fornavn + " " + person.efternavn;
                 klon.querySelector("img").src = billeder + person.billede;
-                klon.querySelector(".dato").textContent = `Fødselsdag:
-                ${person.fødselsdag}`;
+                klon.querySelector(".dato").textContent = `Titel:
+                ${person.titel}`;
                 klon.querySelector(".hobby").textContent = `Hobby: ${
                 person.hobby}`;
                 containerMedPersoner.appendChild(klon);
