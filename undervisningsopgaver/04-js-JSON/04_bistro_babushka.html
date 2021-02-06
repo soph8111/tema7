@@ -6,27 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bistro Babushka</title>
 
+    <link rel="stylesheet" href="04_bistro_babushka.css">
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Arapey&family=Lato&display=swap" rel="stylesheet">
 
-    <style>
-        * {
-            margin: 4px;
-            padding: 0;
-        }
 
-        img {
-            margin: 0;
-            width: 100%;
-        }
-
-        .data-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            grid-gap: 10px;
-        }
-
-    </style>
 </head>
 
 <body>
@@ -47,44 +32,7 @@
         </article>
     </template>
 
-    <script>
-        // Forbindelse til json
-        document.addEventListener("DOMContentLoaded", hentData);
-
-        const url = "https://babushka-dd8a.restdb.io/rest/menu";
-
-        const billeder = "https://babushka-dd8a.restdb.io/media/";
-
-        const options = {
-            headers: {
-                'x-apikey': "600ec2fb1346a1524ff12de4"
-            }
-        };
-
-        async function hentData() {
-            const respons = await fetch(url, options);
-            const json = await respons.json();
-            vis(json);
-        }
-
-        // Forbindelse til HTML-elementer
-        const containerMedRetter = document.querySelector(".data-container");
-        const retterTemplate = document.querySelector("template").content;
-
-        // Udskriv data loop
-        function vis(json) {
-            console.log(json);
-
-            json.forEach(ret => {
-                const klon = retterTemplate.cloneNode(true);
-                klon.querySelector("h2").textContent = ret.navn;
-                klon.querySelector("img").src = billeder + ret.billede;
-                klon.querySelector("p").textContent = ret.pris;
-                containerMedRetter.appendChild(klon);
-            });
-        }
-
-    </script>
+    <script src="04_bistro_babushka.js"></script>
 </body>
 
 </html>

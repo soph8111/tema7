@@ -1,0 +1,15 @@
+* {
+    margin: 4px;
+    padding: 0;
+}
+
+img {
+    margin: 0;
+    width: 100%;
+}
+
+.data-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-gap: 10px;
+}
