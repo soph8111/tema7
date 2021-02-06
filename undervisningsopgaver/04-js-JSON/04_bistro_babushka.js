@@ -10,6 +10,8 @@ const options = {
     }
 };
 
+
+
 async function hentData() {
     const respons = await fetch(url, options);
     const json = await respons.json();
@@ -26,9 +28,10 @@ function vis(json) {
 
     json.forEach(ret => {
         const klon = retterTemplate.cloneNode(true);
-        klon.querySelector("h2").textContent = ret.navn;
+        klon.querySelector("h3").textContent = ret.navn;
         klon.querySelector("img").src = billeder + ret.billede;
-        klon.querySelector("p").textContent = ret.pris;
+        klon.querySelector("p").textContent = ret.pris + ",-";
+        klon.querySelector(".kort_beskrivelse").textContent = ret.kortbeskrivelse;
         containerMedRetter.appendChild(klon);
     });
 }

@@ -9,28 +9,56 @@
     <link rel="stylesheet" href="04_bistro_babushka.css">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Arapey&family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gruppo&family=Raleway&display=swap" rel="stylesheet">
 
+    <style>
+        .hover {
+            animation-name: hover_kf;
+            animation-duration: 1s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
 
+        @keyframes hover_kf {
+            0% {}
+
+            100% {
+                box-shadow: 10px 10px 22px 2px rgba(104, 134, 206, 0.83);
+            }
+        }
+
+    </style>
 </head>
 
 <body>
 
-    <main>
-        <header>
-            <h1>Bistro Babushka</h1>
-        </header>
-
-        <section class="data-container"></section>
-    </main>
-
     <template>
-        <article>
+        <article class="retter">
             <img src="" alt="">
-            <h2></h2>
-            <p></p>
+            <div class=navn_pris>
+                <h3></h3>
+                <p></p>
+            </div>
+            <div class="mere_info">
+                <p class="kort_beskrivelse"></p>
+                <button>Læs mere</button>
+            </div>
         </article>
     </template>
+
+    <header>
+        <div id="logo">
+            <h1>B</h1>
+            <h1 class="vend">B</h1>
+        </div>
+        <h2>Bistro Babushka</h2>
+    </header>
+
+    <main>
+        <hr>
+        <p>HER SKAL DER VÆRE FILTER</p>
+        <section class="data-container"></section>
+    </main>
 
     <script src="04_bistro_babushka.js"></script>
 </body>
