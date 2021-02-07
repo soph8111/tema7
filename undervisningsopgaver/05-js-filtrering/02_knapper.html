@@ -59,6 +59,16 @@
             font-family: 'Lato', sans-serif;
             font-size: 1rem;
         }
+
+        nav {
+            display: flex;
+            justify-content: center;
+        }
+
+        .valgt {
+            background-color: blueviolet;
+            color: aliceblue;
+        }
     </style>
 </head>
 
@@ -67,8 +77,8 @@
         <h1>Persongalleri</h1>
     </header>
     <nav>
-        <button data-troende="alle" class="valgt">Alle</button>
-        <button data-troende="ja">Troende</button>
+        <button data-troende="alle">Alle</button>
+        <button data-troende="ja" class="valgt">Troende</button>
         <button data-troende="nej">Ikke-troende</button>
         <button data-troende="tvivler">Tvivler</button>
     </nav>
