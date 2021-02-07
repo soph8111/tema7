@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", hentData);
+document.addEventListener("DOMContentLoaded", start);
 
 const url = "https://babushka-dd8a.restdb.io/rest/menu";
 
@@ -8,9 +8,11 @@ const options = {
     headers: {
         'x-apikey': "600ec2fb1346a1524ff12de4"
     }
-};
+}
 
-
+function start() {
+    hentdata;
+}
 
 async function hentData() {
     const respons = await fetch(url, options);
