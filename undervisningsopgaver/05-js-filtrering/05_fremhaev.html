@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aflevering, personliste</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Arapey&family=Lato&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 4px;
+            padding: 0;
+            color: dimgray;
+        }
+
+        img {
+            margin: 0;
+            width: 100%;
+        }
+
+        main {
+            border: solid orange 2px;
+            background-color: #f5f4f0;
+            padding: 1vw;
+        }
+
+        header {
+            height: 10vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            font-family: 'Arapey', serif;
+            text-transform: uppercase;
+            letter-spacing: 1rem;
+            font-weight: 100;
+        }
+
+        .data-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-gap: 10px;
+        }
+
+        article {}
+
+        h2 {
+            font-family: 'Lato', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        p {
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+        }
+
+        .valgt {
+            background-color: blueviolet;
+            color: aliceblue;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Alle</h1>
+    </header>
+    <nav>
+        <button data-troende="alle" class="valgt">Alle</button>
+        <button data-troende="ja">Troende</button>
+        <button data-troende="nej">Ikke-troende</button>
+        <button data-troende="tvivler">Tvivler</button>
+    </nav>
+    <main>
+        <section class="data-container"></section>
+    </main>
+
+    <template>
+        <article>
+            <img src="" alt="">
+            <h2></h2>
+            <p class="dato"></p>
+            <p class="hobby"></p>
+            <p class="troende"></p>
+        </article>
+    </template>
+
+    <script>
+        // Forbindelse til json
+        document.addEventListener("DOMContentLoaded", start);
+
+        const header = document.querySelector("header h1");
+
+        const url = "https://persongalleri-5d3e.restdb.io/rest/persongalleri";
+
+        const billeder = "https://persongalleri-5d3e.restdb.io/media/";
+
+        const options = {
+            headers: {
+                'x-apikey': "600fe9211346a1524ff12e31"
+            }
+        }
+
+        async function hentData() {
+            const respons = await fetch(url, options);
+            personer = await respons.json();
+            visPersoner();
+        }
+
+        function start() {
+            hentData();
+
+            const filterKnapper = document.querySelectorAll("nav button");
+
+            filterKnapper.forEach(knap => knap.addEventListener("click", filterPersoner));
+        }
+
+        function filterPersoner() {
+            filter = this.dataset.troende; // Ændre let variablen "filter" efter hvad data-attributten er sat til i HTML
+            document.querySelector(".valgt").classList.remove("valgt");
+            this.classList.add("valgt");
+
+            visPersoner();
+            header.textContent = this.textContent;
+        }
+
+
+        // Opret let variabler - let da dataen ændre sig
+        let personer;
+        let filter = "alle";
+
+
+        // Udskriv data loop
+        function visPersoner() {
+
+            // Forbindelse til HTML-elementer
+            const containerMedPersoner = document.querySelector(".data-container");
+            const personerTemplate = document.querySelector("template").content;
+
+            containerMedPersoner.textContent = ""; //Ryd container inden der kommer frisk indhold
+
+            personer.forEach(person => {
+                console.log("Troende", person.troende);
+                // Loop igennem personer
+                if (filter == person.troende || filter == "alle") {
+                    const klon = personerTemplate.cloneNode(true);
+                    klon.querySelector("h2").textContent = person.fornavn + " " + person.efternavn;
+                    klon.querySelector("img").src = billeder + person.billede;
+                    klon.querySelector(".dato").textContent = `Titel:
+                ${person.titel}`;
+                    klon.querySelector(".hobby").textContent = `Hobby: ${
+                person.hobby}`;
+                    klon.querySelector(".troende").textContent = `Troende: ${
+                person.troende}`;
+                    containerMedPersoner.appendChild(klon);
+                }
+            });
+        }
+
+    </script>
+</body>
+
+</html>
