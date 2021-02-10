@@ -46,6 +46,16 @@ hr {
     margin: 2vw 0 2vw 0;
 }
 
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+.valgt {
+    background-color: blueviolet;
+    color: aliceblue;
+}
+
 main {
     margin: 3vw;
 }
@@ -63,6 +73,10 @@ main {
     justify-content: space-between;
 }
 
+.hide {
+    display: none;
+}
+
 .mere_info {
     position: absolute;
     top: 0;
@@ -70,7 +84,6 @@ main {
     height: 100%;
     width: 100%;
     font-family: 'Raleway', sans-serif;
-
 }
 
 .mere_info .kort_beskrivelse {

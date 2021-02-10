@@ -10,30 +10,58 @@ const options = {
     }
 }
 
+
 function start() {
-    hentData();
+    hentData(); // Kører funktionen "hentData"
+
+    const filterKnapper = document.querySelectorAll("nav button"); // Opretter variablen til knapperne
+
+    filterKnapper.forEach(knap => knap.addEventListener("click", filterRetter)); // sætter eventlistener på alle knapper
+
 }
 
 async function hentData() {
     const respons = await fetch(url, options);
-    const json = await respons.json();
-    vis(json);
+    retter = await respons.json();
+    visRetter();
+
+    console.log(retter);
 }
 
 // Forbindelse til HTML-elementer
 const containerMedRetter = document.querySelector(".data-container");
 const retterTemplate = document.querySelector("template").content;
 
-// Udskriv data loop
-function vis(json) {
-    console.log(json);
 
-    json.forEach(ret => {
-        const klon = retterTemplate.cloneNode(true);
-        klon.querySelector("h3").textContent = ret.navn;
-        klon.querySelector("img").src = billeder + ret.billede;
-        klon.querySelector("p").textContent = ret.pris + ",-";
-        klon.querySelector(".kort_beskrivelse").textContent = ret.kortbeskrivelse;
-        containerMedRetter.appendChild(klon);
+
+function filterRetter() {
+    filter = this.dataset.kategori; // Ændre let variablen "filter" efter hvad data-attributten er sat til i HTML
+    document.querySelector(".valgt").classList.remove("valgt"); // knappen med klassen "valgt" få fjernet klassen
+    this.classList.add("valgt"); // Den nyee knap får klassen "valgt"
+
+    visRetter(); // Kør funktionen "visRetter"
+}
+
+// Opret let variabler - let da dataen ændre sig
+let retter;
+let filter = "alle";
+
+// Udskriv data loop
+function visRetter() {
+
+    containerMedRetter.textContent = ""; //Ryd container inden der kommer frisk indhold
+
+    retter.forEach(ret => {
+        console.log("Kategori: ", ret.kategori);
+        // Loop igennem retter
+        if (filter == ret.kategori || filter == "alle") {
+            const klon = retterTemplate.cloneNode(true);
+            klon.querySelector("h3").textContent = ret.navn;
+            klon.querySelector("img").src = billeder + ret.billede;
+            klon.querySelector("p").textContent = ret.pris + ",-";
+            klon.querySelector(".kort_beskrivelse").textContent = ret.kortbeskrivelse;
+
+            containerMedRetter.appendChild(klon);
+        }
     });
 }
