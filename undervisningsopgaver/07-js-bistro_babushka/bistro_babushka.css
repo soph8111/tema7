@@ -105,6 +105,23 @@ main {
     }
 }
 
+.hoverGone {
+    animation-name: hoverGone_kf;
+    animation-duration: 0.7s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes hoverGone_kf {
+    0% {
+        transform: translateY(0) scaleY(1);
+    }
+
+    100% {
+        transform: translateY(50%) scaleY(0);
+    }
+}
+
 
 
 /*

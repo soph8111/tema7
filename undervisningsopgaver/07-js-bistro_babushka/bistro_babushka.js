@@ -11,7 +11,7 @@ const options = {
 }
 
 function start() {
-    hentdata;
+    hentData();
 }
 
 async function hentData() {
