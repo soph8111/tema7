@@ -10,12 +10,9 @@ const options = {
     }
 }
 
+
 function start() {
     hentData(); // Kører funktionen "hentData"
-
-    const filterKnapper = document.querySelectorAll("nav button"); // Opretter variablen til knapperne
-
-    filterKnapper.forEach(knap => knap.addEventListener("click", filterRetter)); // sætter eventlistener på alle knapper
 
 }
 
@@ -26,8 +23,14 @@ async function hentData() {
 
     console.log(retter);
 
+    const filterKnapper = document.querySelectorAll("nav button"); // Opretter variablen til knapperne
+
+    filterKnapper.forEach(knap => knap.addEventListener("click", filterRetter)); // sætter eventlistener på alle knapper
+
+
     const alleRetter = document.querySelectorAll(".retter");
     const mereInfo = document.querySelectorAll(".mere_info");
+
     let i = 0;
 
     // "i"-variablen bruges her til at tælle op på variablen "allArticles"
@@ -38,18 +41,6 @@ async function hentData() {
     alleRetter.forEach(ret => ret.addEventListener("mouseover", hover));
     alleRetter.forEach(ret => ret.addEventListener("mouseout", hoverGone));
 
-    function hover() {
-        this.querySelector(".mere_info").classList.remove("hide");
-        this.querySelector(".mere_info").classList.remove("hoverGone");
-        this.querySelector(".mere_info").classList.add("hover");
-
-    }
-
-    function hoverGone() {
-        this.querySelector(".mere_info").classList.remove("hover");
-        this.querySelector(".mere_info").classList.add("hoverGone");
-
-    }
 }
 
 // Forbindelse til HTML-elementer
@@ -64,6 +55,19 @@ function filterRetter() {
     this.classList.add("valgt"); // Den nye knap får klassen "valgt"
 
     visRetter(); // Kør funktionen "visRetter"
+
+    const alleRetter = document.querySelectorAll(".retter");
+    const mereInfo = document.querySelectorAll(".mere_info");
+
+    let i = 0;
+
+    // "i"-variablen bruges her til at tælle op på variablen "allArticles"
+    for (let i = 0; i < mereInfo.length; i++) {
+        mereInfo[i].classList.add('hide');
+    }
+
+    alleRetter.forEach(ret => ret.addEventListener("mouseover", hover));
+    alleRetter.forEach(ret => ret.addEventListener("mouseout", hoverGone));
 }
 
 // Opret let variabler - let da dataen ændre sig
@@ -94,4 +98,17 @@ function visRetter() {
 
 function singleView(hvad) {
     location.href = `singleview.html?id=${hvad._id}`;
+}
+
+function hover() {
+    this.querySelector(".mere_info").classList.remove("hide");
+    this.querySelector(".mere_info").classList.remove("hoverGone");
+    this.querySelector(".mere_info").classList.add("hover");
+
+}
+
+function hoverGone() {
+    this.querySelector(".mere_info").classList.remove("hover");
+    this.querySelector(".mere_info").classList.add("hoverGone");
+
 }

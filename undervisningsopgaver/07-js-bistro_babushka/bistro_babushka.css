@@ -135,11 +135,12 @@ main {
     border: solid #d0be60 1px;
     background-color: transparent;
     color: #d0be60;
-    padding: 1vw;
+    padding: 2vw;
     margin-top: 4vw;
-    width: 100%;
+    width: 50%;
     cursor: pointer;
 }
+
 
 #img_singleview {
     height: auto;
@@ -208,7 +209,12 @@ main {
         color: whitesmoke;
     }
 
-    .mere_info button:hover {
+    #tilbage {
+        padding: 1vw;
+    }
+
+    .mere_info button:hover,
+    #tilbage:hover {
         border: solid whitesmoke 1px;
         color: whitesmoke;
         background-color: #d0be60;
