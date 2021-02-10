@@ -37,7 +37,7 @@ const retterTemplate = document.querySelector("template").content;
 function filterRetter() {
     filter = this.dataset.kategori; // Ændre let variablen "filter" efter hvad data-attributten er sat til i HTML
     document.querySelector(".valgt").classList.remove("valgt"); // knappen med klassen "valgt" få fjernet klassen
-    this.classList.add("valgt"); // Den nyee knap får klassen "valgt"
+    this.classList.add("valgt"); // Den nye knap får klassen "valgt"
 
     visRetter(); // Kør funktionen "visRetter"
 }

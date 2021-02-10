@@ -15,17 +15,24 @@
 <body>
 
     <header>
-        <div id="logo">
+        <a id="logo" href="bistro_babushka.html">
             <h1>B</h1>
             <h1 class="vend">B</h1>
-        </div>
+        </a>
         <h2>Bistro Babushka</h2>
     </header>
 
     <main>
         <hr>
-        <h3></h3>
-        <button></button>
+        <img id="img_singleview" src="" alt="">
+        <div>
+            <h3></h3>
+            <hr>
+            <p class="lang_beskrivelse"></p>
+            <p class="oprindelsesregion"></p>
+            <p class="pris"></p>
+        </div>
+        <button id="tilbage">Tilbage til retter</button>
     </main>
 
     <script>
@@ -38,7 +45,7 @@
         document.addEventListener("DOMContentLoaded", start);
 
         const url = `https://babushka-dd8a.restdb.io/rest/menu/${id}`;
-        const billeder = "https://persongalleri-5d3e.restdb.io/media/";
+        const billeder = "https://babushka-dd8a.restdb.io/media/";
 
         const options = {
             headers: {
@@ -61,7 +68,11 @@
 
         // Udskriver data fra den valgte person
         function visRet() {
-            document.querySelector("h3").textContent = "hej";
+            document.querySelector("img").src = billeder + ret.billede;
+            document.querySelector("h3").textContent = ret.navn;
+            document.querySelector(".lang_beskrivelse").textContent = ret.langbeskrivelse;
+            document.querySelector(".oprindelsesregion").innerHTML = `<b>Stammer fra:</b> ${ret.oprindelsesregion}`;
+            document.querySelector(".pris").innerHTML = `<b>Pris:</b> ${ret.pris},-`;
 
             document.querySelector("button").addEventListener("click", tilbageTilRetter);
         }
@@ -74,3 +85,10 @@
 </body>
 
 </html>
+
+<!--
+
+ document.querySelector(".lang_beskrivelse").textContent = ret.langbeskrivelse;
+            document.querySelector(".kategori").textContent = ret.kategori;
+            document.querySelector(".oprindelsesregion").textContent = ret.oprindelsesregion;
+-->
