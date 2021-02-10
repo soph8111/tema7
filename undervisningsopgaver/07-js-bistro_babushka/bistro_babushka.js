@@ -61,7 +61,13 @@ function visRetter() {
             klon.querySelector("p").textContent = ret.pris + ",-";
             klon.querySelector(".kort_beskrivelse").textContent = ret.kortbeskrivelse;
 
+            klon.querySelector("article").addEventListener("click", () => singleView(ret)); // Eventlistener fører til singleview-funktionen
+
             containerMedRetter.appendChild(klon);
         }
     });
+}
+
+function singleView(hvad) {
+    location.href = `singleview.html?id=${hvad._id}`;
 }

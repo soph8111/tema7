@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bistro Babushka</title>
+
+    <link rel="stylesheet" href="bistro_babushka.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Gruppo&family=Raleway&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div id="logo">
+            <h1>B</h1>
+            <h1 class="vend">B</h1>
+        </div>
+        <h2>Bistro Babushka</h2>
+    </header>
+
+    <main>
+        <hr>
+        <h3></h3>
+        <button></button>
+    </main>
+
+    <script>
+        const urlParameter = new URLSearchParams(window.location.search);
+        const id = urlParameter.get("id");
+
+        console.log(id); // Tjekker om den fanger id'et
+
+        // Load siden og kør funktionen "start"
+        document.addEventListener("DOMContentLoaded", start);
+
+        const url = `https://babushka-dd8a.restdb.io/rest/menu/${id}`;
+        const billeder = "https://persongalleri-5d3e.restdb.io/media/";
+
+        const options = {
+            headers: {
+                'x-apikey': "600ec2fb1346a1524ff12de4"
+            }
+        }
+
+        function start() {
+            hentData();
+        }
+
+
+        async function hentData() {
+            const respons = await fetch(url, options);
+            ret = await respons.json();
+
+            console.log("Retten", ret);
+            visRet(ret);
+        }
+
+        // Udskriver data fra den valgte person
+        function visRet() {
+            document.querySelector("h3").textContent = "hej";
+
+            document.querySelector("button").addEventListener("click", tilbageTilRetter);
+        }
+
+        function tilbageTilRetter() {
+            history.back();
+        }
+
+    </script>
+</body>
+
+</html>
