@@ -10,7 +10,6 @@ const options = {
     }
 }
 
-
 function start() {
     hentData(); // Kører funktionen "hentData"
 
@@ -26,6 +25,30 @@ async function hentData() {
     visRetter();
 
     console.log(retter);
+
+    const alleRetter = document.querySelectorAll(".retter");
+    const mereInfo = document.querySelectorAll(".mere_info");
+    let i = 0;
+
+    // "i"-variablen bruges her til at tælle op på variablen "allArticles"
+    for (let i = 0; i < mereInfo.length; i++) {
+        mereInfo[i].classList.add('hoverGone');
+    }
+
+    alleRetter.forEach(ret => ret.addEventListener("mouseover", hover));
+    alleRetter.forEach(ret => ret.addEventListener("mouseout", hoverGone));
+
+    function hover() {
+        this.querySelector(".mere_info").classList.remove("hoverGone");
+        this.querySelector(".mere_info").classList.add("hover");
+
+    }
+
+    function hoverGone() {
+        this.querySelector(".mere_info").classList.remove("hover");
+        this.querySelector(".mere_info").classList.add("hoverGone");
+
+    }
 }
 
 // Forbindelse til HTML-elementer
@@ -61,7 +84,7 @@ function visRetter() {
             klon.querySelector("p").textContent = ret.pris + ",-";
             klon.querySelector(".kort_beskrivelse").textContent = ret.kortbeskrivelse;
 
-            klon.querySelector("article").addEventListener("click", () => singleView(ret)); // Eventlistener fører til singleview-funktionen
+            klon.querySelector(".laes_mere").addEventListener("click", () => singleView(ret)); // Eventlistener fører til singleview-funktionen
 
             containerMedRetter.appendChild(klon);
         }

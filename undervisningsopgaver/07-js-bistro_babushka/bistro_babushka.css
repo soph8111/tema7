@@ -106,66 +106,26 @@ main {
     justify-content: space-between;
 }
 
-.hide {
-    display: none;
-}
-
 .mere_info {
-    position: absolute;
-    top: 0;
-    background-color: antiquewhite;
-    height: 100%;
-    width: 100%;
+    position: relative;
     font-family: 'Raleway', sans-serif;
 }
 
 .mere_info .kort_beskrivelse {
-    margin: 10vh 0vw 0 5vw;
-    width: 60%;
+    width: 80%;
+    font-size: 0.9rem;
 }
 
 .mere_info button {
-    position: absolute;
-    bottom: 5vw;
-    margin-left: 5vw;
+    position: relative;
     font-family: 'Raleway', sans-serif;
-    border: solid black 1px;
+    border: solid #d0be60 1px;
     background-color: transparent;
+    color: #d0be60;
     padding: 2vw;
-}
-
-.hover {
-    animation-name: hover_kf;
-    animation-duration: 0.7s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-}
-
-@keyframes hover_kf {
-    0% {
-        transform: translateY(50%) scaleY(0);
-    }
-
-    100% {
-        transform: translateY(0) scaleY(1);
-    }
-}
-
-.hoverGone {
-    animation-name: hoverGone_kf;
-    animation-duration: 0.7s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-}
-
-@keyframes hoverGone_kf {
-    0% {
-        transform: translateY(0) scaleY(1);
-    }
-
-    100% {
-        transform: translateY(50%) scaleY(0);
-    }
+    margin: 5px 0 5px 0;
+    width: 90px;
+    cursor: pointer;
 }
 
 /*Singleview*/
@@ -219,5 +179,63 @@ main {
 
     #singleview_info {
         padding: 5vw 10vw 0 5vw;
+    }
+
+    /*    Animation ved mouseover/læs mere*/
+
+    .mere_info {
+        position: absolute;
+        top: 0;
+        background-color: antiquewhite;
+        height: 100%;
+        width: 101%;
+    }
+
+    .mere_info .kort_beskrivelse {
+        margin: 10vh 0vw 0 5vw;
+        width: 70%;
+        font-size: 1.1rem;
+    }
+
+    .mere_info button {
+        position: absolute;
+        bottom: 5vw;
+        margin-left: 5vw;
+        padding: 1vw;
+        width: auto;
+    }
+
+    .hover {
+        animation-name: hover_kf;
+        animation-duration: 0.7s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes hover_kf {
+        0% {
+            transform: translateY(50%) scaleY(0);
+        }
+
+        100% {
+            transform: translateY(0) scaleY(1);
+        }
+    }
+
+    .hoverGone {
+        animation-name: hoverGone_kf;
+        animation-duration: 0.7s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes hoverGone_kf {
+        0% {
+            transform: translateY(0) scaleY(1);
+        }
+
+        100% {
+            transform: translateY(50%) scaleY(0);
+        }
     }
 }
