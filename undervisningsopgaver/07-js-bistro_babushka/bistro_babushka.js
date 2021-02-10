@@ -32,13 +32,14 @@ async function hentData() {
 
     // "i"-variablen bruges her til at tælle op på variablen "allArticles"
     for (let i = 0; i < mereInfo.length; i++) {
-        mereInfo[i].classList.add('hoverGone');
+        mereInfo[i].classList.add('hide');
     }
 
     alleRetter.forEach(ret => ret.addEventListener("mouseover", hover));
     alleRetter.forEach(ret => ret.addEventListener("mouseout", hoverGone));
 
     function hover() {
+        this.querySelector(".mere_info").classList.remove("hide");
         this.querySelector(".mere_info").classList.remove("hoverGone");
         this.querySelector(".mere_info").classList.add("hover");
 

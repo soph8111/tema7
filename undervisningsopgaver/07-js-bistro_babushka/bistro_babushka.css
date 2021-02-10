@@ -186,9 +186,10 @@ main {
     .mere_info {
         position: absolute;
         top: 0;
-        background-color: antiquewhite;
+        background-color: #8ea3a9f6;
         height: 100%;
         width: 101%;
+        color: whitesmoke;
     }
 
     .mere_info .kort_beskrivelse {
@@ -202,7 +203,43 @@ main {
         bottom: 5vw;
         margin-left: 5vw;
         padding: 1vw;
-        width: auto;
+        width: 50%;
+        border: solid whitesmoke 1px;
+        color: whitesmoke;
+    }
+
+    .mere_info button:hover {
+        border: solid whitesmoke 1px;
+        color: whitesmoke;
+        background-color: #d0be60;
+
+        animation-name: laes_mere_kf;
+        animation-duration: 0.7s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+    }
+
+
+
+    @keyframes laes_mere_kf {
+        0% {
+            width: 50%;
+        }
+
+        100% {
+            width: 60%;
+        }
+    }
+
+    /*
+transition: opacity 500ms cubic-bezier(0.5, 0.035, 0.19, 1) 0ms,
+transform 300ms cubic-bezier(0.5, 0.035, 0.19, 1) 0ms;
+*/
+
+
+
+    .hide {
+        display: none;
     }
 
     .hover {
