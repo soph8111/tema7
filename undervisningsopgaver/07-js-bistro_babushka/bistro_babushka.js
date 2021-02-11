@@ -13,7 +13,6 @@ const options = {
 
 function start() {
     hentData(); // Kører funktionen "hentData"
-
 }
 
 async function hentData() {

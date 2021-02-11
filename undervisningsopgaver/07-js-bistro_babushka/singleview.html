@@ -14,6 +14,26 @@
 
 <body>
 
+    <template>
+        <footer>
+            <div class="adresse">
+                <p class=""></p>
+                <p class="linje1"></p>
+                <p class="linje2"></p>
+            </div>
+            <div class="aabningstider">
+                <p class=""></p>
+                <p class="mandag_fredag"></p>
+                <p class="lørdag_søndag"></p>
+            </div>
+            <div class="kontakt">
+                <p class=""></p>
+                <p class="tel"></p>
+                <p class="mail"></p>
+            </div>
+        </footer>
+    </template>
+
     <header>
         <a id="logo" href="bistro_babushka.html">
             <h1>B</h1>
@@ -36,6 +56,25 @@
             </div>
         </div>
     </main>
+
+    <footer>
+        <address>
+            <b>Adresse:</b> <br>
+            Grønnegade 97 <br>
+            1234 København K
+        </address>
+        <p>
+            <b>Åbningstider:</b> <br>
+            Mandag-Fredag: 10.30-22.00 <br>
+            Lørdag-Søndag: 12.00-23.00
+        </p>
+        <p>
+            <b>Kontakt:</b> <br>
+            Telefon: <a href="tel:12 34 56 78">12 34 56 78</a><br>
+            Mail: <a href="mailto:eksempel@eksempel.dk">eksempel@eksempel.dk</a>
+        </p>
+    </footer>
+
 
     <script>
         const urlParameter = new URLSearchParams(window.location.search);
@@ -72,10 +111,20 @@
         function visRet() {
             document.querySelector("img").src = billeder + ret.billede;
             document.querySelector("h3").textContent = ret.navn;
-            document.querySelector(".lang_beskrivelse").textContent = ret.langbeskrivelse;
             document.querySelector(".oprindelsesregion").innerHTML = `<b>Stammer fra:</b> ${ret.oprindelsesregion}`;
             document.querySelector(".pris").innerHTML = `<b>Pris:</b> ${ret.pris},-`;
 
+            // Udskriv den lang beskrivelse, hvis den har karakterer der er mere end 1. Ellers udskriv kortbeskrivelsee
+            const langBeskrivelse = ret.langbeskrivelse;
+            const tegn = langBeskrivelse.length;
+            console.log(tegn);
+            if (tegn > "1") {
+                document.querySelector(".lang_beskrivelse").textContent = ret.langbeskrivelse;
+            } else {
+                document.querySelector(".lang_beskrivelse").textContent = ret.kortbeskrivelse;
+            }
+
+            // Tilbageknap
             document.querySelector("button").addEventListener("click", tilbageTilRetter);
         }
 
@@ -89,8 +138,5 @@
 </html>
 
 <!--
-
- document.querySelector(".lang_beskrivelse").textContent = ret.langbeskrivelse;
-            document.querySelector(".kategori").textContent = ret.kategori;
-            document.querySelector(".oprindelsesregion").textContent = ret.oprindelsesregion;
+ footer
 -->
